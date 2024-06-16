@@ -1,15 +1,14 @@
 package io.leftcoast.filepermissions;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.nio.file.Paths;
 import java.nio.file.attribute.PosixFilePermission;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
-
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class FilePermissionsTest {
 

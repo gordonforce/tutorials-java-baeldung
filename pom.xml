@@ -15,10 +15,14 @@
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+    <!-- open source libraries -->
     <junit.version>5.10.2</junit.version>
     <assertj.version>3.26.0</assertj.version>
-    <surefire.version>3.2.5</surefire.version>
-    <project-info-reports.version>3.6.0</project-info-reports.version>
+
+    <!-- maven plugins -->
+    <compiler-plugin.version>3.13.0</compiler-plugin.version>
+    <surefire-plugin.version>3.2.5</surefire-plugin.version>
+    <project-info-reports-plugin.version>3.6.0</project-info-reports-plugin.version>
 
   </properties>
 
@@ -41,8 +45,13 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${compiler-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>${surefire.version}</version>
+        <version>${surefire-plugin.version}</version>
       </plugin>
 
     </plugins>
@@ -53,12 +62,12 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>${surefire.version}</version>
+        <version>${surefire-plugin.version}</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>${project-info-reports.version}</version>
+        <version>${project-info-reports-plugin.version}</version>
       </plugin>
     </plugins>
   </reporting>
