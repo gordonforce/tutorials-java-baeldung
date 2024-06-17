@@ -1,4 +1,4 @@
-package io.leftcoast.tutorials.baeldung.file.permissions;
+package io.leftcoast.tutorials.java.baeldung.file.permissions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import io.leftcoast.tutorials.baeldung.file.FileOperations;
+import io.leftcoast.tutorials.java.baeldung.file.FileOperations;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;

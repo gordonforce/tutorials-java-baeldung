@@ -1,4 +1,4 @@
-package io.leftcoast.tutorials.baeldung.file;
+package io.leftcoast.tutorials.java.baeldung.file;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
