@@ -1,4 +1,4 @@
-package io.leftcoast.filepermissions;
+package io.leftcoast.tutorials.baeldung.file.permissions;
 
 public enum ImplementationType {
   JAVA_IO,
