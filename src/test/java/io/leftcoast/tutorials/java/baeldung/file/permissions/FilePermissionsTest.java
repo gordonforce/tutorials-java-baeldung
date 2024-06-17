@@ -1,4 +1,4 @@
-package io.leftcoast.filepermissions;
+package io.leftcoast.tutorials.java.baeldung.file.permissions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -7,6 +7,9 @@ import java.nio.file.attribute.PosixFilePermission;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
+
+import io.leftcoast.tutorials.java.baeldung.file.FileOperations;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
@@ -17,10 +20,10 @@ class FilePermissionsTest {
           PosixFilePermission.OWNER_READ, ".owner_read",
           PosixFilePermission.OWNER_WRITE, ".owner_write");
 
-  private static final Operations DEFAULT_OPS = new Operations() {};
+  private static final FileOperations DEFAULT_OPS = FileOperations.defaults();
 
-  private static final Map<ImplementationType, Operations> OPERATIONS =
-      DEFAULT_OPS.implementations();
+  private static final Map<ImplementationType, PermissionsChecks> CHECKS_BY_TYPE =
+      PermissionsChecks.implementations();
 
   private void setUp() {
 
@@ -37,6 +40,7 @@ class FilePermissionsTest {
   }
 
   private void tearDown() {
+
     FILE_PATHS.values().stream()
         .map(Paths::get)
         .map(DEFAULT_OPS::destroyDirectory)
@@ -45,9 +49,10 @@ class FilePermissionsTest {
 
   @ParameterizedTest
   @EnumSource(ImplementationType.class)
+  @DisplayName("Verify if a directory is readable")
   void verifyIsReadableDirectory(final ImplementationType type) {
 
-    final Operations ops = OPERATIONS.get(type);
+    final PermissionsChecks ops = CHECKS_BY_TYPE.get(type);
     final String dirPath = FILE_PATHS.get(PosixFilePermission.OWNER_READ);
 
     try {
@@ -60,9 +65,10 @@ class FilePermissionsTest {
 
   @ParameterizedTest
   @EnumSource(ImplementationType.class)
+  @DisplayName("Verify if a directory is writeable")
   void verifyIsWriteableDirectory(final ImplementationType type) {
 
-    final Operations ops = OPERATIONS.get(type);
+    final PermissionsChecks ops = CHECKS_BY_TYPE.get(type);
     final String dirPath = FILE_PATHS.get(PosixFilePermission.OWNER_WRITE);
 
     try {
