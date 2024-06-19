@@ -10,9 +10,12 @@ import java.util.stream.Stream;
 
 import io.leftcoast.tutorials.java.baeldung.file.FileOperations;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
+@Execution(ExecutionMode.SAME_THREAD)
 class FilePermissionsTest {
 
   private static final Map<PosixFilePermission, String> FILE_PATHS =
