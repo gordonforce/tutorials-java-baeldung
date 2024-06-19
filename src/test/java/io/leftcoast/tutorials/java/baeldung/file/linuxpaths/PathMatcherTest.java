@@ -13,14 +13,14 @@ import java.util.regex.Pattern;
 @Execution(ExecutionMode.CONCURRENT)
 class PathMatcherTest {
 
-  private final Pattern pathPattern = new PathMatcher() {}.pattern();
+  private static final Pattern PATH_PATTERN = new PathMatcher() {}.pattern();
 
   @ParameterizedTest
   @ValueSource(strings = {"/", "/foo", "/foo/0", "/foo/0/bar", "/f_o_o/-/bar"})
   @DisplayName("Verify if a path matches the pattern")
   void verifyPathMatches(final String path) {
 
-    assertThat(path).matches(pathPattern);
+    assertThat(path).matches(PATH_PATTERN);
   }
 
   @ParameterizedTest
@@ -28,6 +28,6 @@ class PathMatcherTest {
   @DisplayName("Verify if a path does not match the pattern")
   void verifyPathDoesNotMatch(final String path) {
 
-    assertThat(path).doesNotMatch(pathPattern);
+    assertThat(path).doesNotMatch(PATH_PATTERN);
   }
 }

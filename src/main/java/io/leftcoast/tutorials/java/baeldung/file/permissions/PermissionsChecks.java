@@ -68,4 +68,9 @@ public interface PermissionsChecks {
                   }
                 }));
   }
+
+  enum ImplementationType {
+    JAVA_IO,
+    JAVA_NIO
+  }
 }

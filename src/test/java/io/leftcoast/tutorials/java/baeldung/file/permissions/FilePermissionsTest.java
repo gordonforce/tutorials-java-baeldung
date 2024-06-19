@@ -25,7 +25,7 @@ class FilePermissionsTest {
 
   private static final FileOperations DEFAULT_OPS = FileOperations.defaults();
 
-  private static final Map<ImplementationType, PermissionsChecks> CHECKS_BY_TYPE =
+  private static final Map<PermissionsChecks.ImplementationType, PermissionsChecks> CHECKS_BY_TYPE =
       PermissionsChecks.implementations();
 
   private void setUp() {
@@ -51,9 +51,9 @@ class FilePermissionsTest {
   }
 
   @ParameterizedTest
-  @EnumSource(ImplementationType.class)
+  @EnumSource(PermissionsChecks.ImplementationType.class)
   @DisplayName("Verify if a directory is readable")
-  void verifyIsReadableDirectory(final ImplementationType type) {
+  void verifyIsReadableDirectory(final PermissionsChecks.ImplementationType type) {
 
     final PermissionsChecks ops = CHECKS_BY_TYPE.get(type);
     final String dirPath = FILE_PATHS.get(PosixFilePermission.OWNER_READ);
@@ -67,9 +67,9 @@ class FilePermissionsTest {
   }
 
   @ParameterizedTest
-  @EnumSource(ImplementationType.class)
+  @EnumSource(PermissionsChecks.ImplementationType.class)
   @DisplayName("Verify if a directory is writeable")
-  void verifyIsWriteableDirectory(final ImplementationType type) {
+  void verifyIsWriteableDirectory(final PermissionsChecks.ImplementationType type) {
 
     final PermissionsChecks ops = CHECKS_BY_TYPE.get(type);
     final String dirPath = FILE_PATHS.get(PosixFilePermission.OWNER_WRITE);
