@@ -1,12 +1,11 @@
 package com.github.gordonforce.tutorials.java.baeldung.collections;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @FunctionalInterface
 public interface ListOfMapsIterator {
@@ -25,6 +24,7 @@ public interface ListOfMapsIterator {
 
     final String logTemplate = "Visiting key='{}' value='{} impl='{}'";
 
+    //noinspection LoggingSimilarMessage
     return new EnumMap<>(
         Map.of(
             Type.FOR_WITH_KEY_SET,

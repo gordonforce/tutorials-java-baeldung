@@ -1,15 +1,14 @@
 package com.github.gordonforce.tutorials.java.baeldung.file.linuxpaths;
 
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.regex.Pattern;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-
-import java.util.regex.Pattern;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 @Execution(ExecutionMode.CONCURRENT)
 class PathMatcherTest {

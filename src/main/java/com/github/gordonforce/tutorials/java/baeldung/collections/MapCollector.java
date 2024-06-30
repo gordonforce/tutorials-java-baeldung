@@ -3,6 +3,7 @@ package com.github.gordonforce.tutorials.java.baeldung.collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,5 +31,10 @@ public interface MapCollector {
   default Map<String, List<City>> groupingBy(Stream<City> cities) {
     return cities
         .collect(Collectors.groupingBy(City::country));
+  }
+
+  default Map<String, List<String>> groupingBy(Stream<City> cities, Collector<City, ?, List<String>> collector) {
+    return cities
+        .collect(Collectors.groupingBy(City::country, collector));
   }
 }

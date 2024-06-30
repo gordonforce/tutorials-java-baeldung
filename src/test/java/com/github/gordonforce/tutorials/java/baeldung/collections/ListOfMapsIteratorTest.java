@@ -2,14 +2,13 @@ package com.github.gordonforce.tutorials.java.baeldung.collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
+import java.util.Map;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
-
-import java.util.List;
-import java.util.Map;
 
 @Execution(ExecutionMode.CONCURRENT)
 class ListOfMapsIteratorTest {

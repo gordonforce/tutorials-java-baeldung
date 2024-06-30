@@ -1,15 +1,16 @@
 package com.github.gordonforce.tutorials.java.baeldung.collections;
 
+import static java.util.stream.Collectors.mapping;
+import static java.util.stream.Collectors.toList;
+import static org.assertj.core.api.Assertions.*;
+
+import java.util.*;
+import java.util.stream.Stream;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
-
-import java.util.*;
-import java.util.stream.Stream;
-
-import static org.assertj.core.api.Assertions.*;
 
 @Execution(ExecutionMode.CONCURRENT)
 class MapCollectorsTest {
@@ -23,7 +24,7 @@ class MapCollectorsTest {
   private static final City TOKYO = new City("Tokyo", "Japan");
   private static final City UNKNOWN = new City("Unknown", null);
 
-  private static  final City FRANCE_UNKNOWN = new City(null, "France");
+  private static final City FRANCE_UNKNOWN = new City(null, "France");
 
   private static final Collection<City> ONE_PER_COUNTRY_CITIES =
       List.of(NEW_YORK, PARIS, BERLIN, TOKYO);
@@ -146,7 +147,7 @@ class MapCollectorsTest {
     assertThat(MAP_COLLECTOR.groupingBy(MULTIPLE_PER_COUNTRY_CITIES.stream()))
         .isEqualTo(
             Map.of(
-                "Germany", List.of( BERLIN, ACCHEN,HAMBURG),
+                "Germany", List.of(BERLIN, ACCHEN, HAMBURG),
                 "France", List.of(PARIS, NICE),
                 "Japan", List.of(TOKYO),
                 "USA", List.of(NEW_YORK)));
@@ -156,11 +157,41 @@ class MapCollectorsTest {
   @DisplayName("Verify groupingBy with non-null countries and one null country")
   void verifyGroupingByWithNullCountryThrowsException() {
 
-    final Stream<City> withNullCountry = Stream.concat(ONE_PER_COUNTRY_CITIES.stream(), Stream.of(UNKNOWN));
-
+    final Stream<City> withNullCountry =
+        Stream.concat(ONE_PER_COUNTRY_CITIES.stream(), Stream.of(UNKNOWN));
 
     assertThatThrownBy(() -> MAP_COLLECTOR.groupingBy(withNullCountry))
         .isInstanceOf(NullPointerException.class)
         .hasNoCause();
+  }
+
+  @Test
+  @DisplayName("Verify groupingBy using a grouping collector")
+  void verifyGroupingByUsingAGroupingCollector() {
+
+    final Map<String, List<String>> byCountry =
+        MAP_COLLECTOR.groupingBy(Stream.of(PARIS, BERLIN, TOKYO), mapping(City::name, toList()));
+
+    assertThat(byCountry)
+        .isEqualTo(
+            Map.of(
+                "France", List.of(PARIS.name()),
+                "Germany", List.of(BERLIN.name()),
+                "Japan", List.of(TOKYO.name())));
+  }
+
+  @Test
+  @DisplayName("Verify groupingBy using a collector with a null city name")
+  void verifyGroupingByWithNonNullCountriesUsingAGroupingCollector() {
+
+    final Map<String, List<String>> byCountry =
+        MAP_COLLECTOR.groupingBy(Stream.of(PARIS, BERLIN, TOKYO, FRANCE_UNKNOWN), mapping(City::name, toList()));
+
+    assertThat(byCountry)
+        .isEqualTo(
+            Map.of(
+                "France",  Arrays.asList(PARIS.name(), null),
+                "Germany", List.of(BERLIN.name()),
+                "Japan", List.of(TOKYO.name())));
   }
 }

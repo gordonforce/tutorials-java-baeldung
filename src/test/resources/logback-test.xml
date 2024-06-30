@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration>
 
+<!--suppress XmlHighlighting -->
 <configuration debug="false" strict="true">
 
   <import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"/>

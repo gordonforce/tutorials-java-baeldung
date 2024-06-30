@@ -19,7 +19,7 @@
     <!-- maven plugins -->
     <compiler-plugin.version>3.13.0</compiler-plugin.version>
     <maven.compiler.release>21</maven.compiler.release>
-    <surefire-plugin.version>3.2.5</surefire-plugin.version>
+    <surefire-plugin.version>3.3.0</surefire-plugin.version>
     <project-info-reports-plugin.version>3.6.0</project-info-reports-plugin.version>
 
   </properties>

@@ -1,7 +1,6 @@
 package com.github.gordonforce.tutorials.java.baeldung.file.permissions;
 
 import com.github.gordonforce.tutorials.java.baeldung.file.FileOperations;
-
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
