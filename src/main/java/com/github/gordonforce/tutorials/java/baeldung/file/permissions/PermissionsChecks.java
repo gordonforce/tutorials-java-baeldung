@@ -1,6 +1,6 @@
-package io.leftcoast.tutorials.java.baeldung.file.permissions;
+package com.github.gordonforce.tutorials.java.baeldung.file.permissions;
 
-import io.leftcoast.tutorials.java.baeldung.file.FileOperations;
+import com.github.gordonforce.tutorials.java.baeldung.file.FileOperations;
 
 import java.io.File;
 import java.nio.file.Files;

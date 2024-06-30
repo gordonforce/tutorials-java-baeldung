@@ -1,4 +1,4 @@
-package io.leftcoast.tutorials.java.baeldung.collections;
+package com.github.gordonforce.tutorials.java.baeldung.collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

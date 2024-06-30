@@ -1,4 +1,4 @@
-package io.leftcoast.tutorials.java.baeldung.file.permissions;
+package com.github.gordonforce.tutorials.java.baeldung.file.permissions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import io.leftcoast.tutorials.java.baeldung.file.FileOperations;
+import com.github.gordonforce.tutorials.java.baeldung.file.FileOperations;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;

@@ -1,4 +1,4 @@
-package io.leftcoast.tutorials.java.baeldung.file.linuxpaths;
+package com.github.gordonforce.tutorials.java.baeldung.file.linuxpaths;
 
 import java.util.regex.Pattern;
 

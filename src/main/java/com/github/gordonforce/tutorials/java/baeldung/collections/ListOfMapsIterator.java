@@ -1,4 +1,4 @@
-package io.leftcoast.tutorials.java.baeldung.collections;
+package com.github.gordonforce.tutorials.java.baeldung.collections;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
